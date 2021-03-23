@@ -1,7 +1,7 @@
 # Flask-App-with-mySQL-Data-Base-using-Docker-and-Kubernetes
 
 steps :
-- 1 - create a docker file to build our Flask App image by Docker
+- 1 - create a docker file to build our Flask App Docker image
 - 2 - create a secret resource to store the DB password (mySQL)
 - 3 - create a persistent volume
 - 4 - create a persistent volume claim
