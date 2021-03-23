@@ -133,7 +133,7 @@ def delete_user(user_id):
 
 @app.route("/delete")
 def delete_users():
-    """Function to delete a user from the MySQL database"""
+    """Function to delete all users from the MySQL database"""
     try:
         conn = mysql.connect()
         cursor = conn.cursor()
@@ -141,7 +141,7 @@ def delete_users():
         conn.commit()
         cursor.close()
         conn.close()
-        resp = jsonify("Uses deleted successfully!")
+        resp = jsonify("Users deleted successfully!")
         resp.status_code = 200
         return resp
     except Exception as exception:
