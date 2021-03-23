@@ -12,3 +12,6 @@ update : curl -H "Content-Type: application/json" -d '{"name":"abdeName", "email
 delete one : curl http://host-name.com/delete/id
 
 delete all : curl http://host-name.com/delete
+
+
+host-name.com is equivalent to your service address ip (to get the @ip tape in ubuntu $minikube service your-service-name)
