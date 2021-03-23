@@ -1,0 +1,14 @@
+
+---------------------------------------------------------------------- Curl Command ---------------------------------------------------------------------
+
+add : curl -H "Content-Type: application/json" -d '{"name":"abdeName", "email":"abdeEmail@email.ext", "pwd":"abdePwd"}' http://host-name.com/create
+
+get all : curl http://host-name.com/users
+
+get one : curl http://host-name.com/user/id
+
+update : curl -H "Content-Type: application/json" -d '{"name":"abdeName", "email":"abdeEmail@email.ext", "pwd":"abdePwd", "user_id": 4}' http://host-name.com/update
+
+delete one : curl http://host-name.com/delete/id
+
+delete all : curl http://host-name.com/delete
