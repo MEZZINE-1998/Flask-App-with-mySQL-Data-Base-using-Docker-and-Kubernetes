@@ -17,8 +17,8 @@ mysql.init_app(app)
 
 @app.route("/")
 def index():
-    """Function to test the functionality of the API"""
-    return "Hello, world!"
+    """Function to test the functionality of the API and to add a new user"""
+    return render_template("home.html")
 
 
 @app.route("/create", methods=["POST"])
