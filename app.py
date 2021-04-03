@@ -1,6 +1,6 @@
 import os
-from flask import Flask,request, url_for, redirect, render_template, jsonify
 from flaskext.mysql import MySQL
+from flask import Flask,request, url_for, redirect, render_template, jsonify
 
 app = Flask(__name__)
 
@@ -21,12 +21,12 @@ def home():
 
 
 @app.route("/create", methods=["POST"])
-def add_user():
+def create():
     """Function to add a user to the MySQL database"""
-    json = request.json
-    name = json["name"]
-    email = json["email"]
-    pwd = json["pwd"]
+    features = [x for x in request.form.values()]
+    name = features[0]
+    email = features[1]
+    pwd = features[2]
     if name and email and pwd and request.method == "POST":
         sql = "INSERT INTO users(user_name, user_email, user_password) " \
               "VALUES(%s, %s, %s)"
@@ -38,13 +38,14 @@ def add_user():
             conn.commit()
             cursor.close()
             conn.close()
-            resp = jsonify("User added successfully!")
-            resp.status_code = 200
-            return resp
+            message = "User added successfully!"
         except Exception as exception:
-            return jsonify(str(exception))
+            message = str(exception)
     else:
-        return jsonify("Please provide name, email and pwd")
+        message = "Please provide name, email and pwd"
+
+    return render_template('home.html', message= message)
+
 
 
 
